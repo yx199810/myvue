@@ -1,13 +1,20 @@
+<!--App.vue是我们的主组件，所有页面都是在App.vue下进行切换的。其实你也可以理解为所有的路由也是App.vue的子组件。所以我将router标示为App.vue的子组件-->
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
+<div id="app">
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  created(){
+    const _this = this;
+    layui.use(['layer'],function(){
+      _this.layer = layui.layer,
+      this.layer.msg('hello');
+    })
+  }
 }
 </script>
 
